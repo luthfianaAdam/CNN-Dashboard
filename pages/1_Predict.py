@@ -5,14 +5,15 @@ import tensorflow as tf
 
 st.title("PREDICT IMAGE USING CNN MODEL")
 
+model = tf.keras.models.load_model("model.h5")
 # Use st.cache_resource to load the model once
-@st.cache_resource
-def load_my_model():
-    # Replace 'path/to/your/model.h5' with your actual model file path
-    model = tf.keras.models.load_model("model.h5")
-    return model
+# @st.cache_resource
+# def load_my_model():
+#     # Replace 'path/to/your/model.h5' with your actual model file path
+#     model = tf.keras.models.load_model("model.h5")
+#     return model
 
-model = load_my_model()
+# model = load_my_model()
 
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
 
