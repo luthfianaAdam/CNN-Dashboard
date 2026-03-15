@@ -9,7 +9,7 @@ st.title("PREDICT IMAGE USING CNN MODEL")
 @st.cache_resource
 def load_my_model():
     # Replace 'path/to/your/model.h5' with your actual model file path
-    model = tf.keras.models.load_model('best-cnn-model.h5')
+    model = tf.keras.models.load_model('model.h5')
     return model
 
 model = load_my_model()
