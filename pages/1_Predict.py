@@ -16,6 +16,5 @@ if uploaded_file is not None:
     st.write("Image Uploaded Successfully")
     st.write(uploaded_file)
 
-    st.write("Model Prediction")
-    st.write("Dog")
+    st.write("Model Prediction = Dog")
 
