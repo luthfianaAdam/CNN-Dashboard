@@ -28,28 +28,21 @@ if uploaded_file is not None:
     st.write(uploaded_file)
 
 
-    # Example preprocessing for a model expecting 224x224 RGB images normalized to [0, 1]
-    img = Image.open(uploaded_file)
-    processed_image = img.convert('RGB')
-    processed_image = processed_image.resize((224, 224))
-    image_array = np.array(processed_image) / 255.0
-    image_array = np.expand_dims(image_array, axis=0) # Add batch dimension
-    st.write(image_array.shape)
+    # tampilkan gambar
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    # Make prediction
-    prediction = model.predict(image_array)
+    # preprocessing
+    img = image.resize((224,224))
+    img_array = np.array(img)/255.0
+    img_array = np.expand_dims(img_array, axis=0)
 
-    # Interpret results (example for a binary or multi-class model)
-    # NOTE: This part depends heavily on how your model outputs predictions
-    # For a simple binary model (0 or 1):
-    if prediction > 0.5:
-        st.success(f"Prediction: Class 1 (Confidence: {prediction[0][0]:.2f})")
-    else:
-        st.success(f"Prediction: Class 0 (Confidence: {1 - prediction[0][0]:.2f})")
+    # prediction
+    prediction = model.predict(img_array)
+    # predicted_class = class_names[np.argmax(prediction)]
+    confidence = np.max(prediction)
 
-    # st.write("Model Prediction = Dog")
-
-    # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    # st.write(file_bytes.shape)
-    # st.write(file_bytes)
+    st.write("### Hasil Prediksi")
+    # st.write(f"Class: **{predicted_class}**")
+    st.write(f"Confidence: **{confidence:.2f}**")
 
