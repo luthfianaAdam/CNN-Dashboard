@@ -29,7 +29,8 @@ if uploaded_file is not None:
 
 
     # Example preprocessing for a model expecting 224x224 RGB images normalized to [0, 1]
-    processed_image = Image.convert('RGB')
+    img = Image.open(uploaded_file)
+    processed_image = img.convert('RGB')
     processed_image = processed_image.resize((224, 224))
     image_array = np.array(processed_image) / 255.0
     image_array = np.expand_dims(image_array, axis=0) # Add batch dimension
