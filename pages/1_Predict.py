@@ -6,7 +6,7 @@ import tensorflow as tf
 st.title("PREDICT IMAGE USING CNN MODEL")
 
 # model = tf.keras.models.load_model("model.h5")
-model = tf.keras.models.load_model("best-cnn-model.h5")
+# model = tf.keras.models.load_model("best-cnn-model.h5")
 # Use st.cache_resource to load the model once
 # @st.cache_resource
 # def load_my_model():
@@ -15,6 +15,20 @@ model = tf.keras.models.load_model("best-cnn-model.h5")
 #     return model
 
 # model = load_my_model()
+
+def model():
+    from keras.models import model_from_json
+    json_file = open('model.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    loaded_model = model_from_json(loaded_model_json)
+    # load weights into new model
+    loaded_model.load_weights("model.h5")
+    print("Loaded model from disk")
+
+
+    return loaded_model
+model = model()
 
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
 
