@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image
+from PIL import image
 import tensorflow as tf
 
 st.title("PREDICT IMAGE USING CNN MODEL")
@@ -29,7 +29,7 @@ if uploaded_file is not None:
 
 
     # Example preprocessing for a model expecting 224x224 RGB images normalized to [0, 1]
-    processed_image = Image.convert('RGB')
+    processed_image = image.convert('RGB')
     processed_image = processed_image.resize((224, 224))
     image_array = np.array(processed_image) / 255.0
     image_array = np.expand_dims(image_array, axis=0) # Add batch dimension
