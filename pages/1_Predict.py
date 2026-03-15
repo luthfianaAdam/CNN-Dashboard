@@ -5,7 +5,8 @@ import tensorflow as tf
 
 st.title("PREDICT IMAGE USING CNN MODEL")
 
-model = tf.keras.models.load_model("model.h5")
+# model = tf.keras.models.load_model("model.h5")
+model = tf.keras.models.load_model("best-cnn-model.h5")
 # Use st.cache_resource to load the model once
 # @st.cache_resource
 # def load_my_model():
