@@ -17,5 +17,5 @@ if uploaded_file is not None:
     st.write(uploaded_file)
 
     st.write("Model Prediction")
-    st.text_area(value="Dog", disabled=True, label_visibility="invisible")
+    st.write("Dog")
 
