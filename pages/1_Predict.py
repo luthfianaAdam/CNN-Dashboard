@@ -19,5 +19,6 @@ if uploaded_file is not None:
     st.write("Model Prediction = Dog")
 
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    st.write(file_bytes.shape)
     st.write(file_bytes)
 
