@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-import tensorflow as t
+import tensorflow as tf
 
 st.title("PREDICT IMAGE USING CNN MODEL")
 
