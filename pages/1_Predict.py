@@ -34,6 +34,7 @@ if uploaded_file is not None:
     processed_image = processed_image.resize((224, 224))
     image_array = np.array(processed_image) / 255.0
     image_array = np.expand_dims(image_array, axis=0) # Add batch dimension
+    st.write(image_array)
 
     # Make prediction
     prediction = model.predict(image_array)
