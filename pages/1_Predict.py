@@ -20,7 +20,7 @@ st.title("PREDICT IMAGE USING CNN MODEL")
 label = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
 # Load Model
-loaded_model = load_model('MODEL_CIFAR10_TA1.keras')
+loaded_model = load_model('MODEL_CIFAR10_TA2.keras')
 
 uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
 
