@@ -33,7 +33,7 @@ if uploaded_file is not None:
     st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
     
     st.write("Image Uploaded Successfully")
-    st.write(uploaded_file)
+    # st.write(uploaded_file)
 
 
 
@@ -47,13 +47,11 @@ if uploaded_file is not None:
     # prediction
     prediction = loaded_model.predict(img_array)
     predicted_class = label[np.argmax(prediction)]
-    st.write(prediction)
-    st.write(predicted_class)
     confidence = np.max(prediction)
 
     st.write("### Hasil Prediksi")
     # st.write(f"Class: **{predicted_class}**")
-    st.write(f"Prediction: **{label[prediction]}**")
+    st.write(f"Prediction: **{predicted_class}**")
     st.write(f"Confidence: **{confidence:.2f}**")
 
 
