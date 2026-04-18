@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import images
+from tensorflow.keras.preprocessing import image
 
 st.title("PREDICT IMAGE USING CNN MODEL")
 
@@ -35,8 +35,8 @@ if uploaded_file is not None:
 
 
 
-    img = images.load_img(uploaded_file, target_size=(32, 32))  # sesuaikan ukuran
-    img_array = images.img_to_array(img)
+    img = image.load_img(uploaded_file, target_size=(32, 32))  # sesuaikan ukuran
+    img_array = image.img_to_array(img)
 
     img_array = img_array / 255.0  # normalisasi (WAJIB kalau training pakai ini)
 
