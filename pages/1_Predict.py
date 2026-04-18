@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import images
 
 st.title("PREDICT IMAGE USING CNN MODEL")
 
@@ -33,14 +34,13 @@ if uploaded_file is not None:
     st.write(uploaded_file)
 
 
-    # tampilkan gambar
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    # preprocessing
-    img = image.resize((224,224))
-    img_array = np.array(img)/255.0
-    img_array = np.expand_dims(img_array, axis=0)
+    img = images.load_img(uploaded_file, target_size=(32, 32))  # sesuaikan ukuran
+    img_array = images.img_to_array(img)
+
+    img_array = img_array / 255.0  # normalisasi (WAJIB kalau training pakai ini)
+
+    img_array = np.expand_dims(img_array, axis=0)  # jadi (1, 32, 32, 3)
 
     # prediction
     prediction = loaded_model.predict(img_array)
@@ -50,4 +50,29 @@ if uploaded_file is not None:
     st.write("### Hasil Prediksi")
     # st.write(f"Class: **{predicted_class}**")
     st.write(f"Confidence: **{confidence:.2f}**")
+
+
+
+
+
+
+
+
+
+    # # tampilkan gambar
+    # image = Image.open(uploaded_file)
+
+    # # preprocessing
+    # img = image.resize((224,224))
+    # img_array = np.array(img)/255.0
+    # img_array = np.expand_dims(img_array, axis=0)
+
+    # # prediction
+    # prediction = loaded_model.predict(img_array)
+    # # predicted_class = class_names[np.argmax(prediction)]
+    # confidence = np.max(prediction)
+
+    # st.write("### Hasil Prediksi")
+    # # st.write(f"Class: **{predicted_class}**")
+    # st.write(f"Confidence: **{confidence:.2f}**")
 
