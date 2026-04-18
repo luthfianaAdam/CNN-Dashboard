@@ -17,6 +17,8 @@ st.title("PREDICT IMAGE USING CNN MODEL")
 
 # model = load_my_model()
 
+label = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+
 # Load Model
 loaded_model = load_model('MODEL_CIFAR10_TA1.keras')
 
@@ -49,6 +51,7 @@ if uploaded_file is not None:
 
     st.write("### Hasil Prediksi")
     # st.write(f"Class: **{predicted_class}**")
+    st.write(f"Prediction: **{label[prediction]}**")
     st.write(f"Confidence: **{confidence:.2f}**")
 
 
