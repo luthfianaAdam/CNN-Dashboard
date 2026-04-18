@@ -46,7 +46,9 @@ if uploaded_file is not None:
 
     # prediction
     prediction = loaded_model.predict(img_array)
-    # predicted_class = class_names[np.argmax(prediction)]
+    predicted_class = label[np.argmax(prediction)]
+    st.write(prediction)
+    st.write(predicted_class)
     confidence = np.max(prediction)
 
     st.write("### Hasil Prediksi")
