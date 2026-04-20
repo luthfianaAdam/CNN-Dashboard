@@ -51,8 +51,8 @@ if uploaded_file is not None:
 
     st.write("### Hasil Prediksi")
     # st.write(f"Class: **{predicted_class}**")
-    st.write(f"Prediction: **{predicted_class}**")
-    st.write(f"Confidence: **{confidence:.2f}**")
+    st.write(f"## Prediction: **{predicted_class}**")
+    st.write(f"## Confidence: **{confidence:.2f}**")
 
 
 
