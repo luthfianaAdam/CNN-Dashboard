@@ -50,8 +50,7 @@ if uploaded_file is not None:
     confidence = np.max(prediction)
 
     st.write("## Hasil Prediksi")
-    # st.write(f"### Prediction: **{predicted_class}**")
-    st.write(f"### Prediction: **dog**")
+    st.write(f"### Prediction: **{predicted_class}**")
     st.write(f"### Confidence: **{confidence:.2f}**")
 
 
