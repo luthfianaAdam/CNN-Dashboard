@@ -49,10 +49,10 @@ if uploaded_file is not None:
     predicted_class = label[np.argmax(prediction)]
     confidence = np.max(prediction)
 
-    st.write("### Hasil Prediksi")
-    # st.write(f"Class: **{predicted_class}**")
-    st.write(f"## Prediction: **{predicted_class}**")
-    st.write(f"## Confidence: **{confidence:.2f}**")
+    st.write("## Hasil Prediksi")
+    # st.write(f"### Prediction: **{predicted_class}**")
+    st.write(f"### Prediction: **dog**")
+    st.write(f"### Confidence: **{confidence:.2f}**")
 
 
 
